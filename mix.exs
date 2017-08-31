@@ -8,7 +8,7 @@ defmodule Addict.Mixfile do
      description: description,
      package: package,
      docs: &docs/0,
-     deps: deps]
+     deps: deps()]
   end
 
   def application do
