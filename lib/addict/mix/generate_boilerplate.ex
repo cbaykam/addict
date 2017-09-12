@@ -22,7 +22,7 @@ defmodule Mix.Tasks.Addict.Generate.Boilerplate do
       Mix.shell.error "[x] Please make sure your Addict configuration exists first. Generate it via mix:"
       Mix.shell.error "[x] mix addict.generate.configs"
     else
-      base_module = guess_application_name
+      base_module = guess_application_name()
       Mix.shell.info "[o] Generating Addict boilerplate"
 
       create_addict_templates
@@ -53,7 +53,7 @@ defmodule Mix.Tasks.Addict.Generate.Boilerplate do
   defp create_addict_view do
     view_file = Path.join(["web", "views", "addict_view.ex"])
                 |> Path.relative_to(Mix.Project.app_path)
-    create_file view_file, view_template(base_route_helper: (guess_application_name <> ".Router.Helpers"))
+    create_file view_file, view_template(base_route_helper: (guess_application_name() <> ".Router.Helpers"))
   end
 
   defp guess_application_name do
